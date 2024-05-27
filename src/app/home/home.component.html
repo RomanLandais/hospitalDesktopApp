@@ -1,7 +1,68 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-
-  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+<div class="container-global">
+  <img src="../../assets/icons/logo.png" alt="logo soigne moi" />
+  <form
+    [formGroup]="signInForm"
+    (ngSubmit)="onSignInSubmit()"
+    class="sign in novalidate"
+  >
+    <h4>Connexion espace secrétariat</h4>
+    <div class="row mb-3">
+      <label for="inputEmail2" class="col-sm-5 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          id="inputEmail2"
+          required
+        />
+        <div
+          *ngIf="
+            signInForm.controls['email'].touched &&
+            signInForm.controls['email'].invalid
+          "
+          class="text-danger"
+        >
+          <div *ngIf="signInForm.controls['email'].errors?.['required']">
+            Email requis
+          </div>
+          <div *ngIf="signInForm.controls['email'].errors?.['email']">
+            Email n'est pas valide
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword2" class="col-sm-5 col-form-label"
+        >Mot de passe</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          id="inputPassword2"
+          required
+        />
+        <div
+          *ngIf="
+            signInForm.controls['password'].touched &&
+            signInForm.controls['password'].invalid
+          "
+          class="text-danger"
+        >
+          <div *ngIf="signInForm.controls['password'].errors?.['required']">
+            Mot de passe requis
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="signInForm.invalid"
+    >
+      Connexion
+    </button>
+  </form>
 </div>
