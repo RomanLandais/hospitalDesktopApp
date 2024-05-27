@@ -1,3 +1,9 @@
+Dans le fichier main.js à la racine de l'application (dans le dossier app situé au même niveau que src, et non le dossier enfant de src), ajouter la ligne suivante en fin de code pour permettre l'intéraction avec le backend.
+electron_1.app.commandLine.appendSwitch("ignore-certificate-errors"); // Ignorer les erreurs de certificat
+
+
+
+
 [![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
 
 ![Maintained][maintained-badge]
