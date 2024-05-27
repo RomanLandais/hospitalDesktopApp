@@ -1,1 +1,124 @@
-<p>entry works!</p>
+<div class="container-entry">
+  <div class="entry-table">
+    <h2>Entrées</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entryItem of entry">
+          <td>{{ entryItem.id_user }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="openModal(entryItem.id_user, entryItem.id_stay)"
+              data-bs-toggle="modal"
+              data-bs-target="#userModal"
+            >
+              {{ entryItem.user_name }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exit-table">
+    <h2>Sorties</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exitItem of exit">
+          <td>{{ exitItem.id_user }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="openModal(exitItem.id_user, exitItem.id_stay)"
+              data-bs-toggle="modal"
+              data-bs-target="#userModal"
+            >
+              {{ exitItem.user_name }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="userModal"
+      tabindex="-1"
+      aria-labelledby="userModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="userModalLabel">
+              Détails patient
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" *ngIf="infoUser && infoUser.length > 0">
+            <ul>
+              <li><strong>Nom:</strong> {{ infoUser[0].last_name }}</li>
+              <li><strong>Prénom:</strong> {{ infoUser[0].name }}</li>
+              <li><strong>Email:</strong> {{ infoUser[0].mail }}</li>
+              <li><strong>Adresse:</strong> {{ infoUser[0].postal_adress }}</li>
+            </ul>
+
+            <h4>Consultation:</h4>
+            <ul>
+              <li>
+                <strong>Description:</strong>
+                {{ infoUser[0].consultation_description }}
+              </li>
+            </ul>
+
+            <h4>Prescription:</h4>
+            <ul>
+              <li>
+                <strong>Médicament prescrit:</strong>
+                {{ infoUser[0].medicament_name }}
+              </li>
+              <li><strong>Posologie:</strong> {{ infoUser[0].posology }}</li>
+              <li>
+                <strong>Date de début de la prescription:</strong>
+                {{ infoUser[0].prescription_start_date }}
+              </li>
+              <li>
+                <strong>Date de fin de la prescription:</strong>
+                {{ infoUser[0].prescription_end_date }}
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
