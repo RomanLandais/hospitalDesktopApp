@@ -27,10 +27,8 @@ export class EntryComponent implements OnInit {
     this.comServerService
       .getData('entryStay')
       .subscribe((data: { entryStay: any[] }) => {
-        console.log('Response from entryStay:', data.entryStay);
         if (data.entryStay && Array.isArray(data.entryStay)) {
           this.entry = data.entryStay;
-          console.log('Entry data set from entryStay:', this.entry);
         } else {
           console.error(
             'Invalid data format: entry property is missing or not an array'
@@ -42,11 +40,8 @@ export class EntryComponent implements OnInit {
     this.comServerService
       .getData('exitStay')
       .subscribe((data: { exitStay: any[] }) => {
-        console.log('Response from exitStay:', data.exitStay);
         if (data.exitStay && Array.isArray(data.exitStay)) {
           this.exit = data.exitStay;
-
-          console.log('Exit data set from exitStay:', this.exit);
         } else {
           console.error(
             'Invalid data format: exit property is missing or not an array'
@@ -63,12 +58,8 @@ export class EntryComponent implements OnInit {
     this.comServerService
       .getData(url)
       .subscribe((data: { infoUser: any[] }) => {
-        console.log('Response from User:', data.infoUser);
-
         if (data.infoUser && Array.isArray(data.infoUser)) {
           this.infoUser = data.infoUser;
-
-          console.log('data from user:', this.infoUser);
         } else {
           console.error(
             'Invalid data format: user property is missing or not an array'

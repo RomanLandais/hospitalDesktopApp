@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
 
   // Connexion
   onSignInSubmit() {
-    console.log('Sign in form:', this.signInForm.value);
     this.comServerService
       .sendDataLogin(this.signInForm.value, 'signInDesktop')
       .subscribe({
