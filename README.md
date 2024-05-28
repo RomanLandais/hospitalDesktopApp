@@ -1,8 +1,22 @@
-Dans le fichier main.js à la racine de l'application (dans le dossier app situé au même niveau que src, et non le dossier enfant de src), ajouter la ligne suivante en fin de code pour permettre l'intéraction avec le backend.
+Déploiement de l'application en local : 
+(fonctionne correctement avec Angular v17.3.6 et Electron v30.0.1 ainsi que les versions ultérieures)
+
+- cloner le dépot GitHub sur votre éditeur de code
+  
+- installer les dépendances : npm install
+
+- Dans le fichier main.js à la racine de l'application (dans le dossier app situé au même niveau que src, et non le dossier enfant de src), ajouter la ligne suivante en fin de code pour permettre l'intéraction avec le backend :
 electron_1.app.commandLine.appendSwitch("ignore-certificate-errors"); // Ignorer les erreurs de certificat
 
+- mettre en route le back-end (suivre les instructions liées au dépôts GitHub)
+
+- pour le mode développement utiliser dans le terminal la commande : npm start
+
+- pour construire l'application : npm run electron:build
+En cas de problème lors de la construction, passer en mode administrateur dans le terminal et relancer la construction de l'application.
 
 
+---------- Informations complémentaires concernant le template Electron utilisé -------------------------------------------------------------------------
 
 [![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
 
