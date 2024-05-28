@@ -6,7 +6,7 @@ Déploiement de l'application en local :
 - installer les dépendances : npm install
 
 - Dans le fichier main.js à la racine de l'application (dans le dossier app situé au même niveau que src, et non le dossier enfant de src), ajouter la ligne suivante en fin de code pour permettre l'intéraction avec le backend :
-electron_1.app.commandLine.appendSwitch("ignore-certificate-errors"); // Ignorer les erreurs de certificat
+electron_1.app.commandLine.appendSwitch("ignore-certificate-errors"); // Ignorer les erreurs de certificat, l'utilisation d'un certificat auto-généré nous contraint à cette faiblesse de sécurité. Dans un environnement de développement classique avec utilisation d'un certificat reconnu, cette faiblesse ne serait pas nécessaire.
 
 - mettre en route le back-end (suivre les instructions liées au dépôts GitHub)
 
